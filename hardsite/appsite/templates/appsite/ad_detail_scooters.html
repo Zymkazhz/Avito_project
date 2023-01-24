@@ -1,0 +1,150 @@
+{% extends "appsite/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div>
+        <div class="number-62">
+            <p class="number-61">Стоимость</p>
+            <h1><strong>{{ scooters.price }} руб.</strong></h1>
+            <br>
+            <br>
+            <br>
+            <p>Способ связи:&nbsp;{{ scooters.communication_method }}</p>
+            <a href="tel:{{ car.number_phone }}">
+                <button class="number-63"><p class="number-65">Позвонить:{{ scooters.number_phone }}</p></button>
+            </a>
+            <br>
+            <a href="mailto:{{ car.author.email }}">
+                <button class="number-64"><p class="number-65">Написать:{{ scooters.author.email }}</p></button>
+            </a>
+        </div>
+        <div class="number-60">
+            <div class="ad-detail-list">
+                <div>
+                    <h2><strong>{{ scooters.title }}, {{ scooters.year }}</strong></h2>
+                </div>
+                <div>
+                    <p><img id="largeImg" src="{{ scooters.gallery.image_one.url }}" alt="Large image"></p>
+                        <ul id="thumbs">
+                            <li>
+                                <a href="{{ scooters.scooters.image_one.url }}" title="Image 2">
+                                    <img src="{{ scooters.gallery.image_one.url }}" width='126' height='95'>
+                                </a>
+                            </li>
+                            {% if car.gallery.image_two %}
+                                <li>
+                                    <a href="{{ car.scooters.image_two.url }}" title="Image 3">
+                                        <img src="{{ scooters.gallery.image_two.url }}" width='126' height='95'>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if car.gallery.image_three %}
+                                <li>
+                                    <a href="{{ scooters.gallery.image_three.url }}" title="Image 4">
+                                        <img src="{{ scooters.gallery.image_three.url }}" width='126' height='95'>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if car.gallery.image_four %}
+                            <li>
+                                <a href="{{ scooters.gallery.image_four.url }}" title="Image 5">
+                                    <img src="{{ scooters.gallery.image_four.url }}" width='126' height='95'>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    <script>
+                      var largeImg = document.getElementById('largeImg');
+
+                      var thumbs = document.getElementById('thumbs');
+
+                      thumbs.onclick = function(e) {
+                        var target = e.target;
+
+                        while (target != this) {
+
+                          if (target.nodeName == 'A') {
+                            showThumbnail(target.href, target.title);
+                            return false;
+                          }
+
+                          target = target.parentNode;
+                        }
+
+                      }
+
+                      function showThumbnail(href, title) {
+                        largeImg.src = href;
+                        largeImg.alt = title;
+                      }
+
+
+                      var imgs = thumbs.getElementsByTagName('img');
+                      for (var i = 0; i < imgs.length; i++) {
+                        var url = imgs[i].parentNode.href;
+                        var img = document.createElement('img');
+                        img.src = url;
+                      }
+                    </script>
+                </div>
+            </div>
+            <div class="ad-details">
+                <h1><strong>Характеристики</strong></h1>
+                <table>
+                    <tr>
+                        <td class="number-61">Марка: &nbsp;</td>
+                        <td>{{ scooters.brand }}</td>
+                    </tr>
+                    <tr>
+                        <td class="number-61">Год выпуска: &nbsp;</td>
+                        <td>{{ scooters.year }}</td>
+                    </tr>
+                    <tr>
+                        <td class="number-61">Пробег: &nbsp;</td>
+                        <td>{{ scooters.mileage }}</td>
+                    </tr>
+                    <tr>
+                        <td class="number-61">ПТС: &nbsp;</td>
+                        <td>{{ scooters.pts }}</td>
+                    </tr>
+                    <tr>
+                        <td class="number-61">Владельцев по ПТС: &nbsp;</td>
+                        <td>{{ scooters.score_pts }}</td>
+                    </tr>
+                    <tr>
+                        <td class="number-61">Состояние: &nbsp;</td>
+                        <td>{{ scooters.condition }}</td>
+                    </tr>
+                    <tr>
+                        <td class="number-61">VIN: &nbsp;</td>
+                        <td>{{ scooters.vin_body }}</td>
+                    </tr>
+                    <tr>
+                        <td class="number-61">Тип сутера: &nbsp;</td>
+                        <td>{{ scooters.type_scooter }}</td>
+                    </tr>
+                    <tr>
+                        <td class="number-61">Тип двигателя: &nbsp;</td>
+                        <td>{{ scooters.type_engine }}</td>
+                    </tr>
+                    <tr>
+                        <td class="number-61">Мощность двигателя: &nbsp;</td>
+                        <td>{{ scooters.power }}</td>
+                    </tr>
+                    <tr>
+                        <td class="number-61">Объём двигателя: &nbsp;</td>
+                        <td>{{ scooters.volume_engine }}</td>
+                    </tr>
+                </table>
+                <h1><strong>Описание</strong></h1>
+                <p>{{ scooters.description }}</p>
+            </div>
+            <div>
+                <form action="{% url 'cart:cart_add' scooters.id scooters.category %}" method="post">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                    <input type="submit" value="В корзину">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,46 @@
+body {
+        font: 15px Arial, sans-serif;
+}
+
+.number-2 {
+        height: 45px;
+        background-color: #1a1f22;
+}
+
+.number-3  {
+        color: #ffffff;
+        padding: 8px 15px;
+        padding-left: 1200px;
+}
+
+.number-4 {
+    display: inline-block;
+    font: 400 13.3333px Arial;
+    text-align: center;
+    padding: 7px 9px;
+    background-color: #2f83cd;
+    border-width: 3px;
+    border-style: none;
+    border-radius: 5px;
+    border-color: #2f83cd;
+}
+
+.number-5 {
+    margin: 10px 200px;
+    width: 1000px;
+    height: 60px;
+    border-bottom: 2px solid #ccc;
+}
+
+.number-6 {
+    float: left;
+    width: 0px;
+}
+
+.number-7 {
+    float: right;
+    width:200px;
+    margin: 12px 620px 20px 20px;
+    color: #a9bfd2;
+    font-size: 21px;
+}

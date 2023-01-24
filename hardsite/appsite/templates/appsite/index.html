@@ -1,0 +1,52 @@
+{% extends "appsite/base.html" %}
+{% block content %}
+  <div>
+    {% if object_list %}
+      {% for object in object_list %}
+        <div class="number-66">
+            {% if object.category == 'car' %}
+              <a href="{% url 'ad_detail_car' pk=object.pk %}">
+                <img class="number-69" src="{{ object.image_one.url }}" width="350" height="200">
+              </a>
+              <div class="number-67">
+                <p class="number-68">
+                  <a href="{% url 'ad_detail_car' pk=object.pk %}">{{ object.brand }}, {{ object.year }}</a>
+                </p>
+                  <p style="font-size: 25px;"><strong>{{ object.price }}</strong></p>
+                  <p>{{ object.mileage }} км</p>
+                  {{ object.description }}
+              </div>
+            {% elif object.category == 'scooters' %}
+              <a href="{% url 'ad_detail_scooters' pk=object.pk %}">
+                <img class="number-69" src="{{ object.image_one.url }}" width="350" height="200">
+              </a>
+              <div class="number-67">
+                <p class="number-68">
+                  <a href="{% url 'ad_detail_scooters' pk=object.pk %}">{{ object.brand }}, {{ object.year }}</a>
+                </p>
+                  <p style="font-size: 25px;"><strong>{{ object.price }}</strong></p>
+                  <p>{{ object.mileage }} км</p>
+                  {{ object.description }}
+              </div>
+            {% elif object.category == 'motorcycles' %}
+              <a href="{% url 'ad_detail_motorcycles' pk=object.pk %}">
+                <img class="number-69" src="{{ object.image_one.url }}" width="350" height="200">
+              </a>
+              <div class="number-67">
+                <p class="number-68">
+                  <a href="{% url 'ad_detail_motorcycles' pk=object.pk %}">{{ object.brand }}, {{ object.year }}</a>
+                </p>
+                  <p style="font-size: 25px;"><strong>{{ object.price }}</strong></p>
+                  <p>{{ object.mileage }} км</p>
+                  {{ object.description }}
+              </div>
+            {% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="number-72">
+        <h1><strong>По вашему запросу ничего не найдено:(</strong></h1>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

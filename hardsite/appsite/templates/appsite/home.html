@@ -1,0 +1,31 @@
+{% extends "appsite/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <h1><strong>Рекомендации для вас</strong></h1>
+        {% for object in ads %}
+            <div class="number-58">
+                    {% if object.category == 'car' %}
+                        <a href="{% url 'ad_detail_car' pk=object.pk %}">
+                            <img class="number-69" src="{{ object.image_one.url }}" width="200">
+                        </a>
+                        <p><a href="{% url 'ad_detail_car' pk=object.pk %}">{{ object.brand }}</a></p>
+                    {% elif object.category == 'scooters' %}
+                        <a href="{% url 'ad_detail_scooters' pk=object.pk %}">
+                            <img class="number-69" src="{{ object.image_one.url }}" width="200">
+                        </a>
+                        <p><a href="{% url 'ad_detail_scooters' pk=object.pk %}">{{ object.brand }}</a></p>
+                    {% elif object.category == 'motorcycles' %}
+                        <a href="{% url 'ad_detail_motorcycles' pk=object.pk %}">
+                            <img class="number-69" src="{{ object.image_one.url }}" width="200">
+                        </a>
+                        <p><a href="{% url 'ad_detail_motorcycles' pk=object.pk %}">{{ object.brand }}</a></p>
+
+                    {% endif %}
+                    <p><strong>{{ object.price }}</strong></p>
+                    <p>{{ object.published_date }}</p>
+            </div>
+        {% endfor %}
+        {{ car_object.brand }}
+    </div>
+{% endblock content %}

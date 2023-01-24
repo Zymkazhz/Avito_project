@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/appsite.css' %}">
+        <link rel="stylesheet" href="gallery.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    </head>
+    <body>
+        <div class="number-2">
+            <div class="number-3">
+                {% if user.is_authenticated %}
+                    <a href="/itemadd" target="_self" style="color: #ffffff"><button class="number-4">Разместить обьявление</button></a>
+                {% else %}
+                    <a href="/login" target="_self" style="color: #ffffff"><button class="number-4">Разместить обьявление</button></a>
+                {% endif %}
+            </div>
+            {% if messages %}
+        	            {% for message in messages %}
+          	            <div class="alert alert-{{ message.tags }}">
+            	                {{ message }}
+          	            </div>
+        	            {% endfor %}
+            {% endif %}
+            <div class="navbar-nav">
+              {% if user.is_authenticated %}
+                <a class="nav-item nav-link" href="{% url 'profile' %}">Профиль</a>
+                <a class="nav-item nav-link" href="{% url 'logout' %}">Выход</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{% url 'login' %}">Вход</a>
+                <a class="nav-item nav-link" href="{% url 'register' %}">Регистрация</a>
+              {% endif %}
+            </div>
+            <div class="number-5">
+                <div class="number-6">
+                    <a href="http://127.0.0.1:8000/">
+                            <img src="data:image/png;base64,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" width="200" alt="Oops">
+                    </a>
+                </div>
+            </div>
+            <form action="{% url 'search' %}" method="get" class="number-70">
+                <input type="search" placeholder="Введите запрос..." name="q" class="form-control" required="">
+                <button type="submit" class="number-71">
+                    <p>Поиск</p>
+                </button>
+            </form>
+            <div class="cart-base">
+                <div class="cart-base">
+                    {% with total_items=cart|length %}
+                    {% if cart|length > 0 %}
+                        <a href="{% url 'cart:cart_detail' %}">Корзина:</a>
+                        <a href="{% url 'cart:cart_detail' %}">
+                        {{ total_items }} шт,{{ cart.get_total_price }} руб.
+                        </a>
+                    {% else %}
+                        <a href="{% url 'cart:cart_detail' %}">Корзина: 0 шт.</a>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

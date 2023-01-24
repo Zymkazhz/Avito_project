@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/appsite.css' %}">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    </head>
+    <body>
+        <div class="number-2">
+            <div class="number-3">
+            </div>
+        </div>
+        <div class="number-5" style="border-bottom: 2px solid #ccc;">
+            <div class="number-6">
+                <a href="http://127.0.0.1:8000/">
+                        <img src="data:image/png;base64,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" width="200" alt="Oops">
+                </a>
+            </div>
+            <div>
+                <p class="number-7">Новое объявление</p>
+            </div>
+        </div>
+            <div class="display">
+                <div class="number=8">
+                    <h1 class="number-9" id="number-9"><strong>Категория</strong></h1>
+                </div>
+                <div class="number-10" id="number-10">
+                    <div class="number-11">
+                        <p>Категория</p>
+                    </div>
+                    <button class="number-16" id="open_category_t">
+                        <p class="number-17">Транспорт</p>
+                    </button>
+                    <button class="number-16" id="open_category_n">
+                        <p class="number-18">Недвижимость</p>
+                    </button>
+                    <button class="number-16" id="open_category_r">
+                        <p class="number-19">Работа</p>
+                    </button>
+                    <button class="number-16">
+                        <p class="number-20">Услуги</p>
+                    </button>
+                    <button class="number-16">
+                        <p class="number-21">Личные вещи</p>
+                    </button>
+                    <button class="number-16">
+                        <p class="number-22">Для дома и дачи</p>
+                    </button>
+                    <button class="number-16">
+                        <p class="number-23">Электроника</p>
+                    </button>
+                    <button class="number-16">
+                        <p class="number-24">Хобби и отдых</p>
+                    </button>
+                    <button class="number-16">
+                        <p class="number-25">Животные</p>
+                    </button>
+                    <button class="number-16">
+                        <p class="number-26">Готовый бизнес и оборудование</p>
+                    </button>
+                </div>
+                <div class="number-15" id="number-15">
+                    <div class="number-11">
+                        <p>Транспорт</p>
+                    </div>
+                    <div class="number-12">
+                        <button class="number-34" id="open_podcategory_a">
+                            <p class="number-32-avto">Автомобили</p>
+                        </button>
+                        <button class="number-34" id="open_podcategory_m">
+                            <p class="number-32-moto">Мотоциклы и мототехника</p>
+                        </button>
+                        <div class="number-13">
+                            <p class="number-14">Грузовики и спецтехника</p>
+                        </div>
+                        <div class="number-13">
+                            <p class="number-14">Водный транспорт</p>
+                        </div>
+                        <div class="number-13">
+                            <p class="number-14">Запачасти и аксессуары</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="number-27" id="number-27">
+                    <div class="number-11">
+                        <p>Недвижимость</p>
+                    </div>
+                    <div class="number-12">
+                        <div class="number-28">
+                            <p class="number-14">Квартиры</p>
+                        </div>
+                        <div class="number-28">
+                            <p class="number-14">Комнаты</p>
+                        </div>
+                        <div class="number-28">
+                            <p class="number-14">Дома, дачи, коттеджи</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="number-29" id="number-29">
+                    <div class="number-11">
+                        <p>Работа</p>
+                    </div>
+                    <div class="number-12">
+                        <div class="number-30">
+                            <p class="number-14">Резюме</p>
+                        </div>
+                        <div class="number-30">
+                            <p class="number-14">Вакансии</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="number-33" id="number-33">
+                    <div class="number-11">
+                        <p>Автомобили</p>
+                    </div>
+                    <div class="number-35">
+                        <button class="number-37" id="open_add_car">
+                            <p class="number-36">С пробегом / Новый</p>
+                        </button>
+                    </div>
+                </div>
+                <div class="number-48" id="number-48">
+                    <div class="number-53">
+                        <p class="number-54">Мотоциклы и мототехника</p>
+                    </div>
+                    <div class="number-49">
+                        <button class="number-51" id="open_add_scooters">
+                            <p class="number-50">Мопеды и скутеры</p>
+                        </button>
+                        <button class="number-51" id="open_add_motorcycles">
+                            <p class="number-52">Мотоциклы</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <div>
+            <div class="number-40" id="number-40">
+                <form method="post" class="number-39" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <span>{{ error }}</span>
+                    <div class="display-none">
+                        <input type="text" value="CarForm" name="category_form">
+                        <input type="text" value="GalleryForm" name="category_image_form">
+                        <input type="text" value="Car" name="category">
+                        <input type="text" value="Gallery" name="category_image">
+                    </div>
+                    <p class="number-43">Вид обьявления</p>
+                    {{ form_car.ad_type }}
+                    {{ form_car.fresh }}
+                    <h1 class="number-42"><strong>Внешний вид</strong></h1>
+                    <p class="number-43">Фотографии</p>
+                    <p class="number-44">Не более 4-х</p>
+                    {{ form_image_car.image_one }}
+                    {{ form_image_car.image_two }}
+                    {{ form_image_car.image_three }}
+                    {{ form_image_car.image_four }}
+                    <p class="number-43">Цвет</p>
+                    {{ form_car.color }}
+                    <h1 class="number-42"><strong>Регистрационные данные</strong></h1>
+                    <p class="number-43">VIN автомобиля</p>
+                    {{ form_car.vin_body }}
+                    <p class="number-43">Государственный номер</p>
+                    {{ form_car.gos_number }}
+                    <h1 class="number-42"><strong>Технические характеристики</strong></h1>
+                    <p class="number-43">Марка автомобиля</p>
+                    {{ form_car.brand }}
+                    <h1 class="number-42"><strong>История эксплуатации и состояние</strong></h1>
+                    <p class="number-43">Пробег (км)</p>
+                    {{ form_car.mileage }}
+                    <p class="number-43">Год выпуска</p>
+                    {{ form_car.year }}
+                    <p class="number-43">Состояние</p>
+                    {{ form_car.condition }}
+                    <p class="number-43">ПТС</p>
+                    {{ form_car.pts }}
+                    <p class="number-43">Владельцев по ПТС</p>
+                    {{ form_car.score_pts }}
+                    <h1 class="number-42"><strong>Описание</strong></h1>
+                    {{ form_car.description }}
+                    <h1 class="number-42"><strong>Цена</strong></h1>
+                    <p class="number-43">Стоимость руб.</p>
+                    {{ form_car.price }}
+                    <h1 class="number-42"><strong>Контакты</strong></h1>
+                    <p class="number-43">Телефон</p>
+                    {{ form_car.number_phone }}
+                    <p class="number-43">Способ связи</p>
+                    {{ form_car.communication_method }}
+                    <div class="number-47">
+                        <a href="/" class="number-44" target="_self" style="color: #ffffff">
+                            <button class="number-45" type="button">Выйти</button>
+                        </a>
+                        <a href="/" target="_self" style="color: #ffffff">
+                            <button class="number-46" type="submit">Разместить</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <div class="number-55" id="number-55">
+                <form method="post" class=" number-56" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <span>{{ error }}</span>
+                    <div class="display-none">
+                        <input type="text" value="ScootersForm" name="category_form">
+                        <input type="text" value="GalleryForm" name="category_image_form">
+                        <input type="text" value="Scooters" name="category">
+                        <input type="text" value="Gallery" name="category_image">
+                    </div>
+                    <h1 class="number-42"><strong>Название объявления</strong></h1>
+                    <p class="number-43">Название объявления</p>
+                    {{ form_scooters.title }}
+                    <h1 class="number-42"><strong>Регистрационные данные</strong></h1>
+                    <p class="number-43">VIN или номер рамы</p>
+                    {{ form_scooters.vin_body }}
+                    <h1 class="number-42"><strong>Технические характеристики</strong></h1>
+                    <p class="number-43">Марка</p>
+                    {{ form_scooters.brand }}
+                    <p class="number-43">Тип</p>
+                    {{ form_scooters.type_scooter }}
+                    <p class="number-43">Год выпуска</p>
+                    {{ form_scooters.year }}
+                    <p class="number-43">Тип двигателя</p>
+                    {{ form_scooters.type_engine }}
+                    <p class="number-43">Мощность (л.с)</p>
+                    {{ form_scooters.power }}
+                    <p class="number-43">Объем двигателя (см<sup>3</sup>)</p>
+                    {{ form_scooters.volume_engine }}
+                    <h1 class="number-42"><strong>История эксплуатации и состояние</strong></h1>
+                    <p class="number-43">Пробег</p>
+                    {{ form_scooters.mileage }}
+                    <p class="number-43">Состояние</p>
+                    {{ form_scooters.condition }}
+                    <p class="number-43">ПТС</p>
+                    {{ form_scooters.pts }}
+                    <p class="number-43">Владельцев по ПТС</p>
+                    {{ form_scooters.score_pts }}
+                    <h1 class="number-42"><strong>Подробности</strong></h1>
+                    <p class="number-43">Цена</p>
+                    {{ form_scooters.price }}
+                    <p class="number-43">Описание</p>
+                    {{ form_scooters.description }}
+                    <p class="number-43">Фотографии (не более 4-х)</p>
+                    {{ form_image_scooters.image_one }}
+                    {{ form_image_scooters.image_two }}
+                    {{ form_image_scooters.image_three }}
+                    {{ form_image_scooters.image_four }}
+                    <h1 class="number-42"><strong>Контакты</strong></h1>
+                    <p class="number-43">Телефон</p>
+                    {{ form_scooters.number_phone }}
+                    <p class="number-43">Способ связи</p>
+                    {{ form_scooters.communication_method }}
+                    <div class="number-47">
+                        <a href="/" class="number-44" target="_self" style="color: #ffffff">
+                            <button class="number-45" type="button">Выйти</button>
+                        </a>
+                        <a href="/" target="_self" style="color: #ffffff">
+                            <button class="number-46" type="submit">Разместить</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <div class="number-57" id="number-57">
+                <form method="post" class=" number-56" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <span>{{ error }}</span>
+                    <div class="display-none">
+                        <input type="text" value="MotorcyclesForm" name="category_form">
+                        <input type="text" value="GalleryForm" name="category_image_form">
+                        <input type="text" value="Motorcycles" name="category">
+                        <input type="text" value="Gallery" name="category_image">
+                    </div>
+                    <h1 class="number-42"><strong>Название объявления</strong></h1>
+                    <p class="number-43">Название объявления</p>
+                    {{ form_motorcycles.title }}
+                    <h1 class="number-42"><strong>Регистрационные данные</strong></h1>
+                    <p class="number-43">VIN или номер рамы</p>
+                    {{ form_motorcycles.vin_body }}
+                    <h1 class="number-42"><strong>Технические характеристики</strong></h1>
+                    <p class="number-43">Марка</p>
+                    {{ form_motorcycles.brand }}
+                    <p class="number-43">Тип</p>
+                    {{ form_motorcycles.type_scooter }}
+                    <p class="number-43">Год выпуска</p>
+                    {{ form_motorcycles.year }}
+                    <p class="number-43">Тип двигателя</p>
+                    {{ form_motorcycles.type_engine }}
+                    <p class="number-43">Мощность (л.с)</p>
+                    {{ form_motorcycles.power }}
+                    <p class="number-43">Объем двигателя (см<sup>3</sup>)</p>
+                    {{ form_motorcycles.volume_engine }}
+                    <h1 class="number-42"><strong>История эксплуатации и состояние</strong></h1>
+                    <p class="number-43">Пробег</p>
+                    {{ form_motorcycles.mileage }}
+                    <p class="number-43">Состояние</p>
+                    {{ form_motorcycles.condition }}
+                    <p class="number-43">ПТС</p>
+                    {{ form_motorcycles.pts }}
+                    <p class="number-43">Владельцев по ПТС</p>
+                    {{ form_motorcycles.score_pts }}
+                    <h1 class="number-42"><strong>Подробности</strong></h1>
+                    <p class="number-43">Цена</p>
+                    {{ form_motorcycles.price }}
+                    <p class="number-43">Описание</p>
+                    {{ form_motorcycles.description }}
+                    <p class="number-43">Фотографии (не более 4-х)</p>
+                    {{ form_image_motorcycles.image_one }}
+                    {{ form_image_motorcycles.image_two }}
+                    {{ form_image_motorcycles.image_three }}
+                    {{ form_image_motorcycles.image_four }}
+                    <h1 class="number-42"><strong>Контакты</strong></h1>
+                    <p class="number-43">Телефон</p>
+                    {{ form_motorcycles.number_phone }}
+                    <p class="number-43">Способ связи</p>
+                    {{ form_motorcycles.communication_method }}
+                    <div class="number-47">
+                        <a href="/" class="number-44" target="_self" style="color: #ffffff">
+                            <button class="number-45" type="button">Выйти</button>
+                        </a>
+                        <a href="/" target="_self" style="color: #ffffff">
+                            <button class="number-46" type="submit">Разместить</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
